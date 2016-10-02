@@ -10,11 +10,14 @@ web:
   image: tommsen/typo3-neos:latestxdebug
   ports:
     - '8080:80'
+    - '9000'
   links:
     - db:db
   environment:
     T3APP_VHOST_NAMES: neos dev.neos behat.dev.neos
     T3APP_NEOS_SITE_PACKAGE: Neos.Demo
+    PHP_XDEBUG_ENABLED: 1
+    XDEBUG_CONFIG: remote_host=10.254.254.254
 
 #dev:
 #  image: million12/php-app-ssh
